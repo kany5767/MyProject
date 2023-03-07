@@ -25,14 +25,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Meeting Room Booking App"),
+          title: const Text("Meeting Room Booking App", style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 25,),),
           actions: [
             IconButton(
                 icon: const Icon(Icons.exit_to_app),
+                color: Colors.white,
                 onPressed: () {
                   SystemNavigator.pop();
                 }),
             IconButton(
+              color: Colors.white,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return FormScreen();
@@ -48,8 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
               return const Center(
                 child: Text(
                   "No Data.",
-                  style: TextStyle(fontSize: 35),
-                ),
+                  style: TextStyle(
+                  color: Color(0xFF00BCD4),
+                  fontSize: 25,),),
               );
             } else {
               return ListView.builder(
@@ -58,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Transactions data = providers.transactions[index];
 
                   return Card(
+                      color: Color.fromARGB(255, 255, 255, 255),
                       elevation: 5,
                       margin: const EdgeInsets.symmetric(
                           vertical: 5, horizontal: 10),
@@ -66,15 +72,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           leading: CircleAvatar(
                               radius: 30,
                               child: FittedBox(
-                                child: Text(data.number.toString()),
-                              )),
-                          title: Text(data.name),
+                                child: Text(data.number.toString(),
+                                // ignore: prefer_const_constructors
+                                style: TextStyle(
+                              // ignore: prefer_const_constructors
+                              color: Color(0xFF00BCD4),
+                              fontSize: 15,),),
+                              )
+                              
+                              ),
+                          title: Text(data.name, 
+                          style: const TextStyle(color:Color(0xFF00BCD4)),),
                           // ignore: prefer_interpolation_to_compose_strings
                           subtitle: Text("Type Room: " +data.type.toString() +
                               "\n Check In: " +
                               data.checkIn +
                               "\n Check Out " +
-                              data.checkOut),
+                              data.checkOut ),
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {

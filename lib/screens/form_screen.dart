@@ -25,8 +25,9 @@ class FormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Record Form'),
-        ),
+          title: const Text('Record Form', style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 25,),),),
         body: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Form(
@@ -35,12 +36,12 @@ class FormScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFormField(
-                      decoration: const InputDecoration(labelText: "Room Name"),
+                      decoration: const InputDecoration(labelText: "Your Name"),
                       keyboardType: TextInputType.text,
                       controller: nameController,
                       validator: (String? str) {
                         if (str!.isEmpty) {
-                          return "Please input Room Name.";
+                          return "Please input Your Name.";
                         }
                         return null;
                       },
@@ -142,7 +143,9 @@ class FormScreen extends StatelessWidget {
                             Navigator.pop(context);
                           }
                         },
-                        child: const Text("Add data"))
+                        child: const Text("Add data", style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 25,),))
                   ]),
             )));
   }

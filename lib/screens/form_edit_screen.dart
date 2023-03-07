@@ -28,7 +28,7 @@ class _FormEditScreenState extends State<FormEditScreen> {
   final checkOutController = TextEditingController();
 
   final ButtonStyle style =
-      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20),);
 
   @override
   void initState() {
@@ -45,8 +45,11 @@ class _FormEditScreenState extends State<FormEditScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Data Edit Form'),
-        ),
+          title: const Text('Data Edit Form', 
+          style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 25,),),),
+        
         body: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Form(
@@ -121,8 +124,10 @@ class _FormEditScreenState extends State<FormEditScreen> {
                     ),
                     TextField(
                       controller: checkOutController,
+                      // ignore: prefer_const_constructors
                       decoration: InputDecoration(
                         labelText: 'Enter Date',
+                        // ignore: prefer_const_constructors
                         icon: Icon(Icons.calendar_today),
                       ),
                       readOnly: true,
@@ -144,7 +149,8 @@ class _FormEditScreenState extends State<FormEditScreen> {
                       },
                     ),
                     ElevatedButton(
-                        style: style,
+                        style: 
+                        style,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             var id = int.parse(idController.text);
@@ -169,7 +175,10 @@ class _FormEditScreenState extends State<FormEditScreen> {
                             Navigator.pop(context);
                           }
                         },
-                        child: const Text("Save data"))
+                        child: const Text("Save data", 
+                        // ignore: unnecessary_const
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255)),))
                   ]),
             )));
   }

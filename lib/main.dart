@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.cyan,
         ),
-        home: const MyHomePage(title: 'แอพบัญชี'),
+        home: const MyHomePage(title: 'แอพจองห้องประชุม'),
       ),
     );
   }
